@@ -1,0 +1,35 @@
+{
+    "name": "electron-ssh-terminal",
+    "version": "1.0.0",
+    "description": "SSH terminal application built with Electron",
+    "main": "main.js",
+    "scripts": {
+      "start": "electron .",
+      "build": "electron-builder"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+      "ssh2": "^1.11.0",
+      "xterm": "^5.1.0",
+      "xterm-addon-fit": "^0.7.0",
+      "xterm-addon-web-links": "^0.8.0"
+    },
+    "devDependencies": {
+      "electron": "^25.0.0",
+      "electron-builder": "^24.0.0"
+    },
+    "build": {
+      "appId": "com.yourname.ssh-terminal",
+      "productName": "SSH Terminal",
+      "mac": {
+        "category": "public.app-category.developer-tools"
+      },
+      "win": {
+        "target": "nsis"
+      },
+      "linux": {
+        "target": "AppImage"
+      }
+    }
+  }

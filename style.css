@@ -1,0 +1,267 @@
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: #1E1E1E;
+  color: #F8F8F2;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #2D2D2D;
+  -webkit-app-region: drag;
+  user-select: none;
+}
+
+.window-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: #CCCCCC;
+}
+
+.window-controls {
+  display: flex;
+  -webkit-app-region: no-drag;
+}
+
+.window-controls button {
+  background: none;
+  border: none;
+  color: #CCCCCC;
+  font-size: 16px;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 8px;
+  border-radius: 4px;
+}
+
+.window-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#close-button:hover {
+  background-color: #E81123;
+  color: white;
+}
+
+.tab-bar {
+  display: flex;
+  background-color: #252526;
+  height: 36px;
+  border-bottom: 1px solid #3E3E42;
+}
+
+.tabs {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  min-width: 120px;
+  max-width: 200px;
+  height: 36px;
+  background-color: #2D2D30;
+  color: #CCCCCC;
+  border-right: 1px solid #3E3E42;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.tab.active {
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+}
+
+.tab .tab-title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.tab .tab-close {
+  margin-left: 8px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.tab .tab-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+}
+
+#new-tab-button {
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  color: #CCCCCC;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#new-tab-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.terminal-container {
+  flex: 1;
+  position: relative;
+  background-color: #1E1E1E;
+  overflow: hidden;
+}
+
+.terminal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+.terminal.active {
+  display: block;
+}
+
+.dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #252526;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  width: 400px;
+  display: none;
+  z-index: 100;
+}
+
+.dialog-title {
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid #3E3E42;
+}
+
+.dialog-content {
+  padding: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #CCCCCC;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: #3C3C3C;
+  color: #FFFFFF;
+  border: 1px solid #3E3E42;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.form-actions button {
+  padding: 8px 16px;
+  background-color: #0E639C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.form-actions button:hover {
+  background-color: #1177BB;
+}
+
+.form-actions button:last-child {
+  background-color: transparent;
+  border: 1px solid #3E3E42;
+}
+
+.form-actions button:last-child:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#serial-refresh-button {
+  margin-left: 8px;
+  padding: 4px 8px;
+  background-color: #0E639C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.xterm {
+  padding: 8px;
+}
+
+/* Make terminal font properly crisp */
+.xterm-viewport {
+  image-rendering: pixelated;
+}
