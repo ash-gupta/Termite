@@ -1,0 +1,2 @@
+# Termite
+modern smart terminal
